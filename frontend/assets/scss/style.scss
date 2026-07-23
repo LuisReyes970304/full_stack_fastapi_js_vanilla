@@ -14,8 +14,8 @@ $rose: #f43f5e;
 
 // Technological Purple Accent Variables
 $purple-neon: #a855f7;
-$purple-surface: #231934;
-$purple-border: rgba(168, 85, 247, 0.16);
+$purple-surface: #1f0f3bbb;
+$purple-border: rgba(98, 30, 161, 0.16);
 
 * {
     box-sizing: border-box;
@@ -51,7 +51,7 @@ body {
             padding: 24px 5%;
             border-bottom: 1px solid $purple-border;
             box-shadow:
-                0 4px 30px rgba(0, 0, 0, 0.2),
+                0 4px 30px rgba(74, 6, 151, 0.616),
                 0 1px 0 rgba(255, 255, 255, 0.03) inset;
             display: flex;
             align-items: center;
@@ -78,7 +78,6 @@ body {
                 flex-direction: column;
                 gap: 12px;
                 flex-shrink: 0;
-                // Redesigned with transparent background, padding, and subtle tech border
                 background-color: transparent;
                 border: 1px solid $border-subtle;
                 border-radius: $radius;
@@ -98,8 +97,6 @@ body {
                     cursor: pointer;
                     transition: all 0.3s ease;
                     letter-spacing: -0.01em;
-
-                    // Ensures the text takes up the full width, prevents wrapping breaks, and clips overflowing text cleanly
                     white-space: nowrap;
                     overflow: hidden;
                     text-overflow: ellipsis;
@@ -113,7 +110,7 @@ body {
                     }
 
                     &.Sign-out {
-                        margin-top: auto; 
+                        margin-top: auto;
                         background-color: rgba($rose, 0.05);
                         border-color: rgba($rose, 0.15);
                         color: rgba($text-primary, 0.8);
@@ -131,14 +128,11 @@ body {
             .users {
                 flex-grow: 1;
                 display: grid;
-                grid-template-columns: repeat(
-                    3,
-                    1fr
-                ); 
+                grid-template-columns: repeat(3, 1fr);
                 grid-auto-rows: min-content;
                 gap: 24px;
-                overflow-y: auto; 
-                padding-right: 8px; 
+                overflow-y: auto;
+                padding-right: 8px;
 
                 .user {
                     padding: 24px;
@@ -175,6 +169,58 @@ body {
                                 font-family: "JetBrains Mono", monospace;
                                 font-size: 12px;
                                 color: $text-muted;
+                            }
+                        }
+                    }
+                    .options {
+                        display: flex;
+                        justify-content: space-between;
+                        width: 80%;
+                        gap: 8px;
+                        padding-top: 20px;
+                        margin: auto;
+
+                        .delete-card {
+                            padding: 6px 16px;
+                            border: 1px solid transparent;
+                            border-radius: $radius-pill;
+                            background-color: $rose;
+                            color: white;
+                            font-family: inherit;
+                            font-size: 12px;
+                            font-weight: 600;
+                            cursor: pointer;
+                            transition: all 0.2s ease;
+
+                            &:hover {
+                                color: $text-primary;
+                                box-shadow: 0 4px 12px rgba($rose, 0.2);
+                            }
+
+                            &:active {
+                                transform: scale(0.95);
+                            }
+                        }
+
+                        .update-card {
+                            padding: 6px 16px;
+                            border: 1px solid $purple-border;
+                            border-radius: $radius-pill;
+                            background-color: $purple-neon;
+                            color: white;
+                            font-family: inherit;
+                            font-size: 12px;
+                            font-weight: 600;
+                            cursor: pointer;
+                            transition: all 0.2s ease;
+
+                            &:hover {
+                                color: $deep-space;
+                                box-shadow: 0 4px 12px rgba($purple-neon, 0.3);
+                            }
+
+                            &:active {
+                                transform: scale(0.95);
                             }
                         }
                     }

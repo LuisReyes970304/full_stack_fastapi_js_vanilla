@@ -1,19 +1,7 @@
-import { fastApi } from "./services/endpoint.js";
+import { renderContainer } from "./view/container.js";
+import { renderCard } from "./controller/userCard.controller.js";
 
-const users = document.querySelector(".users");
-
-document.addEventListener("DOMContentLoaded", async () => {
-    const data = await fastApi.getAll();
-    for (const user of data.users) {
-        users.innerHTML += `
-        <div class="user">
-            <h2>${user.name}</h2>
-            <ul>
-                <li>${user.email}</li>
-            </ul>
-        </div>`;
-    }
+document.addEventListener("DOMContentLoaded", async() => {
+    renderContainer();
+    await renderCard();
 });
-
-//test...
-

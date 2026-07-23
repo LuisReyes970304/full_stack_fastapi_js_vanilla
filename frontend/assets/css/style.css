@@ -21,10 +21,10 @@ body .container {
   flex-direction: column;
 }
 body .container header {
-  background: linear-gradient(135deg, #231934 0%, #26262d 100%);
+  background: linear-gradient(135deg, rgba(31, 15, 59, 0.7333333333) 0%, #26262d 100%);
   padding: 24px 5%;
-  border-bottom: 1px solid rgba(168, 85, 247, 0.16);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(255, 255, 255, 0.03) inset;
+  border-bottom: 1px solid rgba(98, 30, 161, 0.16);
+  box-shadow: 0 4px 30px rgba(74, 6, 151, 0.616), 0 1px 0 rgba(255, 255, 255, 0.03) inset;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -74,7 +74,7 @@ body .container main aside button {
 }
 body .container main aside button:hover {
   background-color: #2e2e36;
-  border-color: rgba(168, 85, 247, 0.16);
+  border-color: rgba(98, 30, 161, 0.16);
   color: #eeeef0;
   transform: translateX(4px);
   box-shadow: 0 4px 12px rgba(168, 85, 247, 0.1);
@@ -133,6 +133,52 @@ body .container main .users .user ul li.meta {
   font-family: "JetBrains Mono", monospace;
   font-size: 12px;
   color: #55566a;
+}
+body .container main .users .user .options {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  gap: 8px;
+  padding-top: 20px;
+  margin: auto;
+}
+body .container main .users .user .options .delete-card {
+  padding: 6px 16px;
+  border: 1px solid transparent;
+  border-radius: 100px;
+  background-color: #f43f5e;
+  color: white;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+body .container main .users .user .options .delete-card:hover {
+  color: #eeeef0;
+  box-shadow: 0 4px 12px rgba(244, 63, 94, 0.2);
+}
+body .container main .users .user .options .delete-card:active {
+  transform: scale(0.95);
+}
+body .container main .users .user .options .update-card {
+  padding: 6px 16px;
+  border: 1px solid rgba(98, 30, 161, 0.16);
+  border-radius: 100px;
+  background-color: #a855f7;
+  color: white;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+body .container main .users .user .options .update-card:hover {
+  color: #1e1e24;
+  box-shadow: 0 4px 12px rgba(168, 85, 247, 0.3);
+}
+body .container main .users .user .options .update-card:active {
+  transform: scale(0.95);
 }
 
 /*# sourceMappingURL=style.css.map */
