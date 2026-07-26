@@ -1,17 +1,21 @@
-const containerHTML = `        
-        <header>Consuming fastapi with axios</header>
-            <main>
-                <aside>
-                    <button class="add-user">Add New User</button>
-                    <button class="delete-user">Delete User by ID</button>
-                    <button class="update-user">Update User Information</button>
-                    <button class="Sign-out">Sign-out</button>
-                </aside>
-                <div class="users"></div>
-            </main>
-            `;
+import { aside } from "../components/container/aside";
+import { header } from "../components/container/header";
+import { renderCard } from "../controller/userCard.controller";
+import { createUserPopup } from "../controller/aside.controller";
 
-export function renderContainer() {
+export async function renderContainer() {
     const container = document.querySelector(".container");
-    container.insertAdjacentHTML("afterbegin", containerHTML);
+    container.insertAdjacentHTML("afterbegin", containerHTML(header, aside));
+    await renderCard();
+    await createUserPopup();
 }
+
+const containerHTML = (header, aside) =>`      
+    ${header}
+    <main>
+        ${aside}
+        <div class="users"></div>
+    </main>
+    `;
+
+

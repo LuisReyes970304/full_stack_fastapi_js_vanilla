@@ -1,6 +1,7 @@
-import { fastApi } from "../services/endpoint";
+import { fastApi } from "../services/fastApi";
 import { userCard } from "../components/container/card";
 
+//This is the first endpoint getAll
 export async function renderCard() {
     const users = document.querySelector(".users");
     const data = await fastApi.getAll();
