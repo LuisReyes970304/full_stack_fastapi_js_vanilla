@@ -1,16 +1,17 @@
 from fastapi import APIRouter
 from database.db import fake_db, document
 import json
+from models.models import User
 
 router = APIRouter()
 
 @router.post("/create_user")
-async def create_user(name: str, email: str, password: str):
+async def create_user(user: User):
     try:
         id = await max_id(fake_db)
     except Exception:
         id = 1
-    new_user = {"user_id": id, "name": name, "email": email, "password": password}
+    new_user = {"user_id": id, **user.model_dump()}
     fake_db.append(new_user)
     with open(document, "w") as file:
         json.dump(fake_db, file, indent= 4)
