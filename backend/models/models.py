@@ -8,3 +8,4 @@ class User(BaseModel):
     name: Name
     email: EmailStr
     password: Password
+    
