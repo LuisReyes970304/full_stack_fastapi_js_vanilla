@@ -26,3 +26,4 @@ def valid_password(password: str) -> str:
 Name = Annotated[str, AfterValidator(valid_name)]
 
 Password = Annotated[str, AfterValidator(valid_password)]
+
