@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from database.db import fake_db, document
+from api.database.db import fake_db, document
 from pydantic import BaseModel
 
 import json
