@@ -22,5 +22,23 @@
         "name": "Pedro",
         "email": "pelureca15@gmail.com",
         "password": "12345"
+    },
+    {
+        "user_id": 6,
+        "name": "Margarita",
+        "email": "margarita@gmail.com",
+        "password": "2345678"
+    },
+    {
+        "user_id": 7,
+        "name": "Leider Roberto",
+        "email": "leider@gmail.com",
+        "password": "12345Leider@"
+    },
+    {
+        "user_id": 8,
+        "name": "Roberto Carlos",
+        "email": "roberto@gmail.com",
+        "password": "12345Leider@"
     }
 ]

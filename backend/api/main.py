@@ -5,6 +5,7 @@ from api.routes.create_user import router as create_user
 from api.routes.update_user import router as update_user
 from api.routes.delete_user import router as delete_user
 from fastapi.middleware.cors import CORSMiddleware
+from api.models.models import UserData
 
 
 import json
@@ -35,7 +36,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@app.get("/")
+@app.get("/", response_model=UserData)
 async def root():
     return {"users": fake_db}
 

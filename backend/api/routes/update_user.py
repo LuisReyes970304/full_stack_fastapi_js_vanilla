@@ -1,15 +1,11 @@
 from fastapi import APIRouter
 from api.database.db import fake_db, document
 from pydantic import BaseModel
-
+from api.models.models import User
 import json
 
 router = APIRouter()
 
-class User(BaseModel):
-    name: str
-    email: str
-    password: str
 
 @router.patch("/update_user")
 async def update_user(id_to_update, user_change:User):
