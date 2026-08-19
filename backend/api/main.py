@@ -1,6 +1,6 @@
 from fastapi import FastAPI, Depends
 from contextlib import asynccontextmanager
-from api.database.db import document, fake_db
+from api.config.db import document, fake_db
 from api.routes.create_user import router as create_user
 from api.routes.update_user import router as update_user
 from api.routes.delete_user import router as delete_user

@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from api.database.db import fake_db, document
+from api.config.db import fake_db, document
 import json
 
 router = APIRouter()
