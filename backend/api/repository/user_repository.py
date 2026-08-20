@@ -1,0 +1,32 @@
+from api.config.db import document, fake_db
+from api.models.models import User
+import json
+
+
+async def max_id(fake_db: list):
+    """
+    This is a function that looks for a numeric id and take the bigger of them and add one
+    So it become in the new id for the new user.
+    """
+    data = []
+    for user in fake_db:
+        data.append(int(user["user_id"]))
+    return max(data) + 1
+
+class UserCrud:
+    async def find_all(self) -> dict:
+        return {"users": fake_db}
+    
+    async def create(self, user: User):
+        try:
+            id = await max_id(fake_db)
+        except Exception:
+            id = 1
+        new_user = {"user_id": id, **user.model_dump()}
+        fake_db.append(new_user)
+        with open(document, "w") as file:
+            json.dump(fake_db, file, indent= 4)
+        return {"new_user": new_user}
+    
+    
+

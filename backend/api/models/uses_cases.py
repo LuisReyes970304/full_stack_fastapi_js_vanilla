@@ -2,7 +2,7 @@ from pydantic import AfterValidator
 from typing import Annotated
 
 def valid_name(name: str) -> str:
-    if len(name) =< 2:
+    if len(name) <= 2:
         raise ValueError("The name cannot be shorter than 2 characters")
     if len(name) > 50:
         raise ValueError("The name cannot be longer than 50 characters")

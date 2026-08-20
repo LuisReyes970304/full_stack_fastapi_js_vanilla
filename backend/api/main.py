@@ -2,10 +2,11 @@ from fastapi import FastAPI, Depends
 from contextlib import asynccontextmanager
 from api.config.db import document, fake_db
 from api.routes.create_user import router as create_user
+from api.routes.get_user import router as get_user
 from api.routes.update_user import router as update_user
 from api.routes.delete_user import router as delete_user
 from fastapi.middleware.cors import CORSMiddleware
-from api.models.models import UserData
+
 
 
 import json
@@ -36,11 +37,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@app.get("/", response_model=UserData)
-async def root():
-    return {"users": fake_db}
-
-
+app.include_router(get_user)
 app.include_router(create_user)
 app.include_router(update_user)
 app.include_router(delete_user)
