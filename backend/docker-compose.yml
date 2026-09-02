@@ -1,5 +1,6 @@
 services:
     app:
         build: ./api
+        container_name: ${CONTAINER_NAME}
         ports:
-            - "8000:8000"
+            - ${APP_HOST_PORT}:${APP_CONTAINER_PORT}
