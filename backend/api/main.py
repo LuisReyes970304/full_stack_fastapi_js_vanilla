@@ -8,18 +8,13 @@ from api.routes.delete_user import router as delete_user
 from fastapi.middleware.cors import CORSMiddleware
 
 
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    create_db_and_tables()
+    yield   
 
-import json
 
-# @asynccontextmanager
-# async def lifepan(app: FastAPI):
-#     with open(document, "r") as file:
-#         data = json.load(file)
-#     fake_db[:] = data
-#     yield
-#     fake_db.clear()
-
-app = FastAPI()
+app = FastAPI(lifespan=lifespan)
 
 origins = [
     "http://localhost:5400",
@@ -37,10 +32,14 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+@app.get("/")
+async def root():
+    return {"message": "Hello World"}
+
 app.include_router(get_user)
-app.include_router(create_user)
-app.include_router(update_user)
-app.include_router(delete_user)
+# app.include_router(create_user)
+# app.include_router(update_user)
+# app.include_router(delete_user)
 
 
 

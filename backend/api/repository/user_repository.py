@@ -1,11 +1,16 @@
-from api.models.user_model import User
-from sqlmodel import Session, select
-from config.db import engine
+from sqlmodel import select
+
 
 class UserCrud:
-    async def find_all(self):
-        with Session(engine) as session:
-            statement = select(User)
+    async def find_all(self, user, session):
+            statement = select(user)
             results = session.exec(statement)
             for user in results:
                 yield user
+                
+    async def create(self, user, session):
+            session.add(user)
+            session.commit()
+            session.refresh(user)
+            session.close()
+            return user
